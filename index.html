@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <style>
+        #total {
+            transition: 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white">
+
+
+    <div class="header flex flex-col  items-center pt-6 ">
+        <h1 class="font-bold text-5xl">CRUD</h1>
+        <p>prodect mangment system </p>
+    </div>
+    <form name="f1" class="space-y-6  flex flex-col items-center container mx-auto">
+        <input type="text" placeholder="title" name="title"
+            class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+        <div class="flex space-x-6 w-full">
+            <input oninput="getTotal()" type="number" placeholder="price" name="price"
+                class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+            <input oninput="getTotal()" type="number" placeholder="taxes" name="taxes"
+                class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+            <input oninput="getTotal()" type="number" placeholder="discount" name="discount"
+                class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+            <h4 id="total" class="input input-bordered w-full h-9 p-2 rounded-lg bg-red-800">
+                Total:
+            </h4>
+        </div>
+        <input type="number" placeholder="count" name="count"
+            class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+        <input type="text" placeholder="category" name="category"
+            class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+        <div id="mood">
+            <button id="create" onclick="saveProduit()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                create
+            </button>
+            <button style="display: none;" id="update" onclick="updateAll()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                update
+            </button>
+        </div>
+
+
+
+
+        <input type="text" oninput="search()" name="searching" placeholder="search"
+            class="input input-bordered w-full h-9 p-2 rounded-lg bg-slate-600" />
+        <div class="flex space-x-6">
+            <button onclick="searchTitle()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-60">
+                search by category
+            </button>
+            <button onclick="searchCategory()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-60">
+                search by item
+            </button>
+        </div>
+        <div id="deleteAll"></div>
+    </form>
+    <div class="tableau flex items-center w-full container mx-auto">
+        <table class="w-full text-sm text-gray-400 dark:text-gray-400 text-center mb-6">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        titre
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        discount
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        total
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        update
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+
+            </tbody>
+        </table>
+
+    </div>
+    <footer class="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left">
+        <div class="p-4 text-center text-neutral-700 dark:text-neutral-200">
+            © 2023 Copyright:
+            <a class="text-neutral-800 dark:text-neutral-400" href="https://tailwind-elements.com/">hamza sayari</a>
+        </div>
+    </footer>
+    <script src="src/script.js"></script>
+    
+</body>
+
+</html>
